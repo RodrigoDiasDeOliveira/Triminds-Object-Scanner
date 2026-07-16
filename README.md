@@ -7,8 +7,6 @@
 ![Python](https://img.shields.io/badge/Python-Flask-blue)
 ![Oracle](https://img.shields.io/badge/Oracle-Database-red)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
-![detector](https://github.com/user-attachments/assets/37645298-c6ae-4051-8510-b6c02c6d69dc)
-
 
 
 ![detector](https://github.com/user-attachments/assets/37645298-c6ae-4051-8510-b6c02c6d69dc)
