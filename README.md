@@ -201,7 +201,7 @@ When confidence is below the configured threshold, ObjectScanner automatically i
 
 ## 🗄 Database Layer
 
-* Oracle Database
+ 
 * Scan history
 * Audit logs
 * Detection metadata
@@ -212,3 +212,318 @@ When confidence is below the configured threshold, ObjectScanner automatically i
 ## 🔄 REST API
 
 The backend exposes REST endpoints for inference, model integration and synchronization with enterprise systems.
+---
+
+# 🚀 Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/RodrigoDiasDeOliveira/Object-Scanner.git
+cd Object-Scanner
+```
+
+---
+
+## Backend Setup
+
+```bash
+cd PythonBackend
+
+# Install dependencies
+bash setup_en.sh
+
+# Configure environment variables
+cp .env.example .env
+
+# Edit the .env file with your credentials
+```
+
+Start the server:
+
+```bash
+python app.py
+```
+
+---
+
+## Android Application
+
+Open the **Android/** folder using Android Studio.
+
+Update the backend URL in:
+
+```
+RetrofitClient.java
+```
+
+Run the application on a physical Android device.
+
+---
+
+# 📸 Usage
+
+## Mobile Application
+
+1. Launch the application
+2. Point the camera at pallets, boxes, labels or warehouse assets
+3. Tap **Capture & Analyze**
+4. Review detected objects
+5. Results are automatically synchronized with enterprise systems
+
+---
+
+# 🌐 REST API
+
+## Object Detection
+
+```bash
+POST /detect
+```
+
+Example:
+
+```bash
+curl -X POST \
+-F "image=@sample.jpg" \
+http://localhost:5000/detect
+```
+
+Sample response:
+
+```json
+{
+  "success": true,
+  "counts": {
+    "pallet": 12,
+    "box": 45,
+    "sack": 8
+  },
+  "source": "ml",
+  "scan_id": 784
+}
+```
+
+---
+
+# 🧠 AI Model Training
+
+Triminds ObjectScanner supports custom datasets, allowing organizations to train models specific to their warehouse environment.
+
+## Dataset Preparation
+
+1. Create or fork a dataset in Roboflow
+2. Upload custom warehouse images
+3. Generate a YOLOv8 dataset
+4. Download the dataset
+
+Extract it into:
+
+```text
+PythonBackend/ml_model/dataset
+```
+
+Train:
+
+```bash
+python train.py
+```
+
+Export:
+
+```bash
+python export.py
+```
+
+---
+
+# ☁ Cloud Deployment
+
+Supported deployment environments include:
+
+* Oracle Cloud Infrastructure
+* Railway
+* Docker
+* Kubernetes (future)
+* Azure
+* Google Cloud Platform
+
+Docker example:
+
+```bash
+docker build -t triminds-objectscanner .
+
+docker run -p 5000:5000 triminds-objectscanner
+```
+
+---
+
+# 🧪 Testing
+
+The project supports multiple testing layers.
+
+## Unit Tests
+
+* AI services
+* Detection pipeline
+* Database layer
+* REST API
+* Utility classes
+
+---
+
+## Integration Tests
+
+* Android ↔ Backend
+* Backend ↔ Oracle Database
+* Backend ↔ Azure Vision
+* Backend ↔ TLP System
+
+---
+
+## Performance Tests
+
+* Inference latency
+* Detection throughput
+* Mobile upload time
+* API response time
+
+Run:
+
+```bash
+pytest
+```
+
+---
+
+# 📊 Future Roadmap
+
+## Artificial Intelligence
+
+* Instance Segmentation
+* Pose Estimation
+* OCR integration
+* Multi-model inference
+* Video stream detection
+* Edge AI optimization
+
+---
+
+## Mobile
+
+* Offline inference
+* Local TensorFlow Lite models
+* Automatic synchronization
+* Multi-camera support
+
+---
+
+## Cloud
+
+* Kubernetes deployment
+* Horizontal autoscaling
+* Streaming inference
+* Event-driven architecture
+* Real-time dashboards
+
+---
+
+## Platform
+
+* Native Triminds Platform UI integration
+* Unified Authentication
+* Shared Dashboard
+* Centralized Notifications
+* Role-based permissions
+* Cross-product navigation
+
+---
+
+# 🎯 Design Principles
+
+* Modular Architecture
+* Cloud-Native Design
+* AI-First Development
+* Separation of Concerns
+* Production-Ready Components
+* Enterprise Security
+* High Scalability
+* Maintainability
+* Reusability
+
+---
+
+# 📚 Documentation
+
+Project documentation includes:
+
+* Architecture Decision Records (ADRs)
+* System Architecture
+* AI Pipeline
+* Deployment Guides
+* API Documentation
+* Cloud Architecture
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+Feel free to:
+
+* Open Issues
+* Submit Pull Requests
+* Suggest Improvements
+* Report Bugs
+
+Please follow the project's coding standards and contribution guidelines.
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+# 🚀 Triminds Ecosystem
+
+Triminds ObjectScanner is part of a growing ecosystem of enterprise AI products.
+
+```text
+Triminds
+
+├── Platform UI
+│
+├── Geo AI
+│
+├── ObjectScanner
+│
+├── SmartImageLab
+│
+├── Security
+│
+└── Future Enterprise Products
+```
+
+Each product is independently deployable while sharing a common platform architecture, enterprise security model and user experience through the **Triminds Platform UI**.
+
+---
+
+## Building the Future of Enterprise AI
+
+**Triminds** is building a modular ecosystem of enterprise-grade Artificial Intelligence solutions focused on Computer Vision, Geospatial Intelligence, Cloud Computing, MLOps and Digital Transformation.
+
+Every product follows the same engineering principles:
+
+* 🧩 Modular Architecture
+* ☁ Cloud-Native Infrastructure
+* 🤖 AI-First Design
+* 🔒 Enterprise Security
+* 🚀 Production-Ready Solutions
+* ♻ Reusable Components
+* 🌐 Unified Platform Experience
+
+Together, these products form a scalable platform capable of supporting multiple AI domains while maintaining consistency, maintainability and extensibility across the entire Triminds ecosystem.
+
